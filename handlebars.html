@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Handlebars Exercises</title>
+  <!-- JS Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+  <!-- Handlebars Templates -->
+  <script id="tag-template" type="text/x-handlebars-template">
+    <em>"{{.}}"</em>
+  </script>
+
+  <script id="posts-template" type="text/x-handlebars-template">
+    {{#each posts}}
+    <article>
+      <h1>{{ title }}</h1>
+      <h3>Posted on <date>{{ published }}</date></h3>
+      {{{ body }}}
+      <footer>
+        <p>
+          {{#if tags}}
+          Tags:
+          {{#each tags}}
+            {{>tag}}
+          {{/each}}
+          {{else}}
+          Not tagged
+          {{/if}}
+        </p>
+      </footer>
+    </article>
+    {{/each}}
+  </script>
+
+  <!-- Main JS file -->
+  <script src="handlebars.js"></script>
+</body>
+</html>
